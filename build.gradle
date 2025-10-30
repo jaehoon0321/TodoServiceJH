@@ -1,0 +1,81 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'com.ssg'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '5.10.2'
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    // Spring Framework (버전 유지)
+    compileOnly('javax.servlet:javax.servlet-api:4.0.1')
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    implementation 'org.springframework:spring-core:5.3.27'
+    implementation 'org.springframework:spring-context:5.3.27'
+    implementation 'org.springframework:spring-tx:5.3.27'
+    implementation 'org.springframework:spring-webmvc:5.3.27'
+    implementation 'org.springframework:spring-jdbc:5.3.27'
+    implementation 'org.springframework:spring-test:5.3.27'
+
+    // Lombok (이미지: 1.18.24, 기존 코드: 1.18.30) - 기존 코드가 더 최신이므로 유지
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    testCompileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    // Log4j (이미지: 2.17.2, 기존 코드: 2.22.1) - 이미지가 낮은 버전이므로 이미지 버전으로 통일
+    implementation 'org.apache.logging.log4j:log4j-api:2.17.2'
+    implementation 'org.apache.logging.log4j:log4j-core:2.17.2'
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.17.2'
+
+    // JSTL (버전 일치)
+    implementation 'jstl:jstl:1.2'
+
+    // MySQL (버전 일치)
+    implementation 'mysql:mysql-connector-java:8.0.22'
+
+    // HikariCP (이미지: 5.0.1, 기존 코드: 5.0.0) - 이미지 버전으로 통일
+    implementation 'com.zaxxer:HikariCP:5.0.1'
+
+    // Mybatis (이미지: 3.5.9, 기존 코드: 3.5.6) - 이미지 버전으로 통일
+    implementation 'org.mybatis:mybatis:3.5.9'
+
+    // Mybatis-Spring (이미지: 2.0.7, 기존 코드: 2.0.6) - 이미지 버전으로 통일
+    implementation 'org.mybatis:mybatis-spring:2.0.7'
+
+    // ModelMapper (이미지에 있었던 누락 라이브러리 추가)
+    implementation 'org.modelmapper:modelmapper:3.0.0'
+
+    // Hibernate Validator (이미지: 6.2.1.Final, 기존 코드: 6.2.5.Final) - 기존 코드가 더 최신이므로 유지
+    //서버사이드 검증!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    implementation 'org.hibernate.validator:hibernate-validator:6.2.5.Final'
+
+    // javax.el 관련 (기존 코드 유지)
+    implementation 'javax.el:javax.el-api:3.0.0'
+    implementation 'org.glassfish.web:javax.el:2.2.6'
+
+    // Mybatis Type Handlers (기존 코드에만 있었으므로 유지)
+    implementation 'org.mybatis:mybatis-typehandlers-jsr310:1.0.2'
+
+    implementation 'org.modelmapper:modelmapper:3.0.0'
+}
+
+test {
+    useJUnitPlatform()
+}
