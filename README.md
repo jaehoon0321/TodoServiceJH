@@ -1,15 +1,23 @@
-#  📖TodoService Study 
+#  📖TodoService Study Riview
 
 
 
 ---
 
 ## 🛠️ 기술 스택
+[ 카테고리 ] : [기술] : [ 버전]
+1.Language :	Java	:	JDK 17 
+2.Web Framework	: Spring Web MVC	 
+3.	MyBatis	
+4.MySQL
+5.HikariCP
+6.Gradle
+7.Lombok
+8.ModelMapper  : DTO ↔ VO 객체 간 변환 지원 
+9.Hibernate Validator
+10.IntelliJ IDEA
+11.Git / GitHub
 
-- Language : Java (JDK 17)
-- Database : MySQL 8.0.22
-- Database Access : JDBC
-- Tooling : IntelliJ IDEA, GitHub, Workbench, Railway
 
 ---
 
@@ -17,16 +25,31 @@
 
 ```
 src/
- ┣ controller/   # 사용자 요청 처리
- ┣ service/      # 비즈니스 로직
- ┣ serviceImpl/    # Service 구현체 (비즈니스 로직 실제 처리)
- ┣ dao/          # 데이터 접근 인터페이스
- ┣ daoImpl/      # DAO 구현체 (JDBC 활용)
- ┣ domain/          # Vo, Dto
- ┣ Session/       # 사용자 로그인 정보 저장
- ┗ view/         # CLI 기반 UI
-```
-
+ ┣ main/
+ ┃ ┣ java/
+ ┃ ┃ ┗ com.ssg.todoservicejh/
+ ┃ ┃   ┣ config/      # Spring 설정 (Configuration)
+ ┃ ┃   ┣ controller/  # Controller (사용자 요청 처리)
+ ┃ ┃   ┣ domain/      # Model (VO/Entity)
+ ┃ ┃   ┣ dto/         # Model (DTO)
+ ┃ ┃   ┣ mapper/      # DAO/Repository (MyBatis Mapper Interface)
+ ┃ ┃   ┣ service/     # Service Interface (비즈니스 로직 정의)
+ ┃ ┃   ┗ serviceImpl/ # Service 구현체 (비즈니스 로직 실제 구현)
+ ┃ ┣ resources/
+ ┃ ┃ ┣ mapper/        # MyBatis Mapper XML (SQL 쿼리)
+ ┃ ┃ ┣ static/        # 정적 파일 (CSS, JS, Image)
+ ┃ ┃ ┗ log4j2.xml     # 로깅 설정
+ ┃ ┗ webapp/
+ ┃   ┣ WEB-INF/
+ ┃   ┃ ┣ spring/      # Spring 설정 XML
+ ┃   ┃ ┃ ┣ root-context.xml
+ ┃   ┃ ┃ ┗ servlet-context.xml
+ ┃   ┃ ┗ views/       # View 파일 (.jsp)
+ ┃   ┃   ┗ todo/
+ ┃   ┗ web.xml        # 웹 애플리케이션 환경 설정
+ ┗ test/
+   ┗ java/
+     ┗ com.ssg.todoservicejh.mapper/ # 테스트 코드 (MapperTests 포함)
 ---
 
 ## 🔀 Git Flow 전략
@@ -34,10 +57,7 @@ src/
 
 ## ✨ 주요 기능
 
-- 입출고 관리 : 상품 입고/출고 내역 기록 및 추적
-- 재고 관리 : 창고별 재고 조회 및 실사 관리
-- 회원/로그인 관리 : 사용자 등록, 로그인, 권한별 기능 접근
-- 창고 관리 : 기능별 창고 조회 및 창고/섹션 등록·수정
+
 
 ---
 
